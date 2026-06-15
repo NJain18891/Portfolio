@@ -12,6 +12,7 @@ export interface ProjectSpec {
   architecture: string;
   metrics: ProjectMetric[];
   highlight: string;
+  imagePath: string;
 }
 
 // Calendar Slot Shape

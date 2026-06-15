@@ -60,10 +60,11 @@ export default function StudioBookingDesk({
   };
 
   return (
-    <section 
-      id="booking-desk" 
-      className="max-w-[1600px] mx-auto px-6 lg:px-12 py-32 border-t border-white/[0.06] relative"
-    >
+    <div className="w-full bg-[#060608] relative z-30 pt-24 border-t border-white/[0.04]">
+      <section 
+        id="booking-desk" 
+        className="max-w-[1600px] mx-auto px-6 lg:px-12 py-32 relative"
+      >
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
         
         <div className="lg:col-span-5 space-y-6">
@@ -252,5 +253,6 @@ export default function StudioBookingDesk({
 
       </div>
     </section>
+  </div>
   );
 }

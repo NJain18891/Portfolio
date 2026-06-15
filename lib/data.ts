@@ -13,7 +13,8 @@ export const PROJECTS_DATA: ProjectSpec[] = [
       { label: 'Network Uptime', value: '99.9997%' },
       { label: 'Buffer Cache Size', value: '256MB raw' }
     ],
-    highlight: 'Redesigned NASA-grade telemetric protocols, shaving 40% bytes-on-wire overhead and introducing zero-allocation binary serialization arrays.'
+    highlight: 'Redesigned NASA-grade telemetric protocols, shaving 40% bytes-on-wire overhead and introducing zero-allocation binary serialization arrays.',
+    imagePath: '/vanguard.png'
   },
   {
     title: 'APEX AGGREGATES',
@@ -27,7 +28,8 @@ export const PROJECTS_DATA: ProjectSpec[] = [
       { label: 'Index Cardinality', value: 'Ultra-High' },
       { label: 'Gzip Compression Ratio', value: '4.2x' }
     ],
-    highlight: 'Developed low-level lock-free memory rings for real-time thread safety, bypassing standard JavaScript GC cycles entirely.'
+    highlight: 'Developed low-level lock-free memory rings for real-time thread safety, bypassing standard JavaScript GC cycles entirely.',
+    imagePath: '/apex.png'
   },
   {
     title: 'ZORA MARKETPLACE',
@@ -41,7 +43,8 @@ export const PROJECTS_DATA: ProjectSpec[] = [
       { label: 'Simulated Volume', value: '$4.2M/day' },
       { label: 'Max Slippage Margin', value: '0.05%' }
     ],
-    highlight: 'Recomputed liquidity distribution vectors inside highly optimized WebGL grids, speeding up interaction loops into perfect 120 FPS render frames.'
+    highlight: 'Recomputed liquidity distribution vectors inside highly optimized WebGL grids, speeding up interaction loops into perfect 120 FPS render frames.',
+    imagePath: '/zora.png'
   },
   {
     title: 'ORIA WELLNESS',
@@ -55,7 +58,8 @@ export const PROJECTS_DATA: ProjectSpec[] = [
       { label: 'Aesthetic Frame Drops', value: '0 absolute' },
       { label: 'Active Rendering Rate', value: '120Hz native' }
     ],
-    highlight: 'Assembled kinetic responsive breathing timers that anchor psychological flow via soft-toned sine waves synthesized raw inside client Web Audio nodes.'
+    highlight: 'Assembled kinetic responsive breathing timers that anchor psychological flow via soft-toned sine waves synthesized raw inside client Web Audio nodes.',
+    imagePath: '/oria.png'
   }
 ];
 
