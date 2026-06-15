@@ -21,10 +21,11 @@ export default function ProjectEngine({
       id="project-engine"
       className="w-full relative border-t border-white/[0.06] bg-[#09090D] overflow-hidden"
     >
+      {/* Container 12-column Grid */}
       <div className="hidden md:grid md:grid-cols-12 min-h-screen w-full relative">
         
-        {/* Left Side: Dynamic Project Menu Column (Unrestricted & Natural Growth) */}
-        <div className="md:col-span-4 lg:col-span-5 flex flex-col justify-between pt-28 pb-16 px-6 lg:px-12 border-r border-white/[0.06] bg-[#09090D] z-20">
+        {/* LEFT SIDE: Dynamic Project Menu Column */}
+        <div className="md:col-span-4 lg:col-span-4 xl:col-span-3 flex flex-col justify-between pt-28 pb-16 px-6 lg:px-10 border-r border-white/[0.06] bg-[#09090D] z-20">
           <div>
             <p className="font-mono text-[9px] tracking-[0.3em] text-[#059669] uppercase mb-10 lg:mb-16">
               {"// ACTIVE SYSTEM DIRECTORY"}
@@ -47,8 +48,8 @@ export default function ProjectEngine({
                         0{idx + 1}
                       </span>
                       
-                      <div>
-                        <h2 className={`font-serif text-3xl lg:text-4xl tracking-wide transition-all duration-300 ${
+                      <div className="whitespace-nowrap">
+                        <h2 className={`font-serif text-lg lg:text-xl xl:text-2xl tracking-wide transition-all duration-300 ${
                           isActive 
                             ? 'text-white translate-x-2' 
                             : 'text-neutral-500 hover:text-neutral-300'
@@ -96,26 +97,11 @@ export default function ProjectEngine({
           </div>
         </div>
 
-        {/* Right Side: Interactive Cinematic Takeover (Kept sticky) */}
-        <div className="md:col-span-8 lg:col-span-7 h-screen sticky top-0 overflow-hidden flex items-center justify-center bg-[#060608] self-start px-8">
-          {/* Browser frame mockup */}
-          <div className="w-full max-w-2xl aspect-[1.6] bg-[#111116] border border-white/[0.06] rounded-xl overflow-hidden shadow-2xl relative">
-            
-            {/* Sleek top header row */}
-            <div className="h-10 border-b border-white/[0.06] bg-[#14141c] px-4 flex items-center justify-between select-none">
-              <div className="flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-white/[0.1]" />
-                <span className="w-2 h-2 rounded-full bg-white/[0.1]" />
-                <span className="w-2 h-2 rounded-full bg-white/[0.1]" />
-              </div>
-              <div className="font-mono text-[9px] tracking-widest text-[#6B7280]">
-                HTTPS://WORK.NIKHIL/{PROJECTS_DATA[activeIndex].title.toLowerCase().replace(' ', '-')}
-              </div>
-              <div className="w-12 h-1 bg-white/5 rounded-full opacity-30" />
-            </div>
-
-            {/* Immersive screenshot viewer */}
-            <div className="relative w-full h-[calc(100%-40px)] overflow-hidden bg-[#09090D] p-4 flex items-center justify-center">
+        {/* RIGHT SIDE: Stretches down perfectly matching the height of the left column */}
+        <div className="md:col-span-8 lg:col-span-8 xl:col-span-9 bg-[#060608] relative">
+          {/* Inner Sticky Container: Manages visual framing and keeps content centered on scroll */}
+          <div className="h-screen sticky top-0 overflow-hidden flex items-center justify-center p-6 lg:p-12 xl:p-16 w-full">
+            <div className="relative w-full h-full">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeIndex}
@@ -132,11 +118,10 @@ export default function ProjectEngine({
                     priority
                     className="object-contain object-center"
                     referrerPolicy="no-referrer"
-                  />
+                    />
                 </motion.div>
               </AnimatePresence>
             </div>
-
           </div>
         </div>
 
@@ -161,27 +146,14 @@ export default function ProjectEngine({
                 {project.title}
               </h3>
               
-              <div className="mt-4 border border-white/[0.06] bg-[#111116] rounded-lg overflow-hidden shadow-md relative aspect-video w-full">
-                <div className="h-7 border-b border-white/[0.06] bg-[#14141c] px-3 flex items-center justify-between select-none">
-                  <div className="flex items-center gap-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-white/[0.1]" />
-                    <span className="w-1.5 h-1.5 rounded-full bg-white/[0.1]" />
-                    <span className="w-1.5 h-1.5 rounded-full bg-white/[0.1]" />
-                  </div>
-                  <div className="font-mono text-[8px] text-[#6B7280]">
-                    {project.title.toLowerCase().replace(' ', '-')}
-                  </div>
-                  <div className="w-4 h-1 bg-white/5 rounded-full opacity-30" />
-                </div>
-                <div className="relative w-full h-[calc(100%-28px)] overflow-hidden bg-[#09090D] p-2 flex items-center justify-center">
-                  <Image
-                    src={project.imagePath}
-                    alt={`${project.title} Viewport Screenshot`}
-                    fill
-                    className="object-contain object-center"
-                    referrerPolicy="no-referrer"
-                  />
-                </div>
+              <div className="mt-4 relative aspect-video w-full overflow-hidden rounded-xl bg-[#09090D] border border-white/[0.06]">
+                <Image
+                  src={project.imagePath}
+                  alt={`${project.title} Viewport Screenshot`}
+                  fill
+                  className="object-contain object-center"
+                  referrerPolicy="no-referrer"
+                />
               </div>
 
               <p className="text-xs text-neutral-400 mt-4 leading-relaxed font-light">
