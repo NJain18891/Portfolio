@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: var(--font-serif), Playfair Display, serif;
+  --font-mono: var(--font-mono), JetBrains Mono, monospace;
+  --font-sans: var(--font-sans), Inter, sans-serif;
+}
+
+/* Custom noise overlay or high-end scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #060608;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(16, 185, 129, 0.3);
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #060608;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Custom styling for a cinematic grid pattern background */
+.cinematic-grid {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.glow-emerald {
+  text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+}
+
