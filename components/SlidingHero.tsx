@@ -72,7 +72,7 @@ export default function SlidingHero({ onSelectProject }: SlidingHeroProps) {
   return (
     <section 
       id="sliding-hero"
-      className="relative w-full h-[calc(85vh-80px)] sm:h-[calc(90vh-80px)] md:h-[calc(100vh-80px)] mt-22 bg-[#060608] overflow-hidden border-b border-white/[0.04]"
+      className="relative w-full h-[calc(85vh-80px)] sm:h-[calc(90vh-80px)] md:h-[calc(100vh-80px)] bg-[#060608] overflow-hidden border-b border-white/[0.04]"
     >
       {/* Immersive Background Slider only */}
       <div id="hero-background-wrapper" className="absolute inset-0 z-0">
