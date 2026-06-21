@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'motion/react';
-import { ArrowRight, Terminal, Cpu, Zap, Activity } from 'lucide-react';
+import { ArrowRight, MonitorCog, Palette, Clapperboard } from 'lucide-react';
 import Image from 'next/image';
 import ViewfinderFrame from './branding/ViewfinderFrame';
 
@@ -12,28 +12,28 @@ export default function AboutNexora() {
   const stats = [
     {
       id: '01',
-      title: 'KINETIC PIPELINES',
-      desc: 'Architecting lock-free memory structures, custom WASM runtimes, and real-time WebSocket pipelines.',
-      icon: <Cpu className="w-4 h-4 text-[#00F0FF]" />,
+      title: 'DIGITAL FOUNDATIONS',
+      desc: 'Crafting responsive websites with a focus on performance, thoughtful design, and seamless user experiences.',
+      icon: <MonitorCog className="w-4 h-4 text-[#00F0FF]" />,
     },
     {
       id: '02',
-      title: 'CINEMATIC FIDELITY',
-      desc: 'Crafting pixel-perfect responsive layouts featuring custom shaders, spring dynamics, and zero frame droppage.',
-      icon: <Activity className="w-4 h-4 text-[#FF2EFF]" />,
+      title: 'VISUAL IDENTITY',
+      desc: 'Designing distinctive logos and brand elements that communicate personality with clarity and style.',
+      icon: <Palette className="w-4 h-4 text-[#FF2EFF]" />,
     },
     {
       id: '03',
-      title: 'SUB-MS DIRECTIVES',
-      desc: 'Optimizing render passes, asset pipelines, and telemetry parsing to maintain flawless 120Hz interaction feeds.',
-      icon: <Zap className="w-4 h-4 text-emerald-400" />,
+      title: 'CINEMATIC STORYTELLING',
+      desc: 'Producing polished video content with refined editing, smooth pacing, and attention to every detail.',
+      icon: <Clapperboard className="w-4 h-4 text-emerald-400" />,
     },
   ];
 
   return (
     <section 
       id="about-nexora" 
-      className="relative w-full pt-32 pb-24 sm:pt-40 sm:pb-32 bg-[#09090D] border-b border-white/[0.04] overflow-hidden"
+      className="relative w-full pt-32 pb-24 sm:pt-32 sm:pb-32 bg-[#09090D] border-b border-white/[0.04] overflow-hidden"
     >
       {/* Cybernetic Grid Backdrop */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.01)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.01)_1px,transparent_1px)] bg-[size:50px_50px] pointer-events-none z-0 opacity-15" />
@@ -55,14 +55,7 @@ export default function AboutNexora() {
               onMouseLeave={() => setLogoActive(false)}
             >
               {/* Extra large bespoke viewport frame */}
-              <div className="relative p-6 bg-[#0E0E18]/60 border border-white/[0.05] rounded-2xl shadow-[0_0_50px_rgba(0,240,255,0.03)] group-hover:border-[#00F0FF]/30 transition-all duration-500">
-                
-                {/* Viewfinder Corner Target Marks */}
-                <span className="absolute top-3 left-3 w-4 h-4 border-t-2 border-l-2 border-white/25 group-hover:border-[#00F0FF] transition-colors duration-300" />
-                <span className="absolute top-3 right-3 w-4 h-4 border-t-2 border-r-2 border-white/25 group-hover:border-[#FF2EFF] transition-colors duration-300" />
-                <span className="absolute bottom-3 left-3 w-4 h-4 border-b-2 border-l-2 border-white/25 group-hover:border-emerald-400 transition-colors duration-300" />
-                <span className="absolute bottom-3 right-3 w-4 h-4 border-b-2 border-r-2 border-white/25 group-hover:border-[#00F0FF] transition-colors duration-300" />
-
+              <div className="relative p-1 bg-[#0E0E18]/60 border border-white/[0.05] rounded-2xl shadow-[0_0_50px_rgba(0,240,255,0.03)] group-hover:border-[#00F0FF]/30 transition-all duration-500">
                 <div className="p-4 sm:p-8 flex items-center justify-center relative w-[260px] h-[260px] sm:w-[340px] sm:h-[340px] md:w-[380px] md:h-[380px] lg:w-[360px] lg:h-[360px] xl:w-[420px] xl:h-[420px] mx-auto transition-all duration-500">
                   <Image 
                     src="/nexora_logo.png" 
@@ -73,20 +66,6 @@ export default function AboutNexora() {
                     referrerPolicy="no-referrer"
                   />
                 </div>
-
-                {/* Technical Coordinates overlay */}
-                <div className="absolute bottom-4 left-6 right-6 flex items-center justify-between font-mono text-[8px] text-neutral-500 tracking-[0.2em] uppercase select-none pointer-events-none">
-                  <span>SYS.COORDS // 44.15.92</span>
-                  <span className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#00F0FF] animate-pulse" />
-                    ENGINE STABLE
-                  </span>
-                </div>
-              </div>
-
-              {/* Floating diagnostic detail */}
-              <div className="absolute -top-4 -right-4 bg-black/80 border border-white/10 px-3 py-1 text-[8px] font-mono text-emerald-400 uppercase tracking-widest rounded shadow-xl pointer-events-none">
-                CORE // O_SYS_ON
               </div>
             </motion.div>
           </div>
@@ -94,61 +73,34 @@ export default function AboutNexora() {
           {/* Right Side: Narrative and Tech Highlights */}
           <div className="lg:col-span-7 flex flex-col justify-center space-y-8">
             <div className="space-y-4">
-              <div className="flex items-center gap-3">
-                <span className="font-mono text-[9px] tracking-[0.35em] text-[#00F0FF] uppercase bg-[#00F0FF]/10 px-2.5 py-1 rounded inline-block">
-                  {"// NEXUS DIRECTIVE"}
-                </span>
-                <span className="h-px flex-1 bg-white/[0.06]" />
-              </div>
-              <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-tight">
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-tight pb-2">
                 Engineering <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00F0FF] via-emerald-400 to-[#FF2EFF]">Hyper-Performance</span> Digital Ecosystems
               </h2>
               <p className="text-base sm:text-lg text-neutral-300 font-light leading-relaxed max-w-2xl">
-                I am <span className="text-white font-medium">Nikhil Jain</span>, a Creative Technologist spearheading the Nexora Engine. I synthesize distributed telemetry pipelines, WebGL-driven analytics grids, and raw audio synthesis with meticulously hand-tailored, responsive interfaces.
+                I'm <span className="text-white font-medium">Nikhil Jain</span>, the creator behind Nexora. I specialize in crafting modern, high-quality websites and creative media experiences, combining innovative technology with thoughtful design and a meticulous attention to detail.
               </p>
             </div>
 
             {/* Micro Specs List */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
               {stats.map((stat) => (
                 <div 
                   key={stat.id} 
                   className="p-5 rounded-xl border border-white/[0.05] bg-[#111116]/40 hover:bg-[#14141d]/85 hover:border-white/[0.1] transition-all duration-300 group"
                 >
                   <div className="flex items-center justify-between mb-3">
-                    <span className="font-mono text-[9px] tracking-widest text-neutral-500 font-bold group-hover:text-white transition-colors">
-                      {stat.id} {"//"}
+                    <span className="font-mono text-[14px] tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-[#00F0FF] via-emerald-400 to-[#FF2EFF] mb-2 min-h-[2.5rem] flex items-center">
+                      {stat.title}
                     </span>
                     <div className="p-1.5 rounded bg-white/[0.02] border border-white/5">
                       {stat.icon}
                     </div>
                   </div>
-                  <h3 className="font-mono text-[10px] tracking-[0.2em] text-white font-black uppercase mb-1.5">
-                    {stat.title}
-                  </h3>
-                  <p className="text-[11px] text-neutral-400 leading-relaxed font-light font-sans">
+                  <p className="text-[13px] text-white leading-relaxed font-light font-sans">
                     {stat.desc}
                   </p>
                 </div>
               ))}
-            </div>
-
-            {/* Quick interactive links */}
-            <div className="flex flex-wrap items-center gap-6 pt-4">
-              <button 
-                onClick={() => document.getElementById('sliding-hero')?.scrollIntoView({ behavior: 'smooth' })}
-                className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.25em] text-[#00F0FF] hover:text-[#FF2EFF] transition-colors cursor-pointer"
-              >
-                <span>[ VIEW ACTIVE TELEMETRY ]</span>
-                <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1.5 transition-transform" />
-              </button>
-
-              <button 
-                onClick={() => document.getElementById('project-engine')?.scrollIntoView({ behavior: 'smooth' })}
-                className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.25em] text-neutral-400 hover:text-white transition-colors cursor-pointer"
-              >
-                <span>[ OPEN DIRECTORY ]</span>
-              </button>
             </div>
           </div>
 

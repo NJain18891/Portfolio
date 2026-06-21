@@ -3,12 +3,12 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
-  ArrowDown, 
   X,
-  Clock,
   Sparkles,
-  Calendar,
-  AlertCircle
+  ChevronDown,
+  MonitorCog,
+  Palette,
+  Clapperboard
 } from 'lucide-react';
 
 import VideoPortfolio from '@/components/VideoPortfolio';
@@ -18,11 +18,13 @@ import SlidingHero from '@/components/SlidingHero';
 import AboutNexora from '@/components/AboutNexora';
 import { PROJECTS_DATA } from '@/lib/data';
 import NexoraHeader from '@/components/branding/NexoraHeader';
+import LogoDesign from '@/components/LogoDesign';
 
 export default function Home() {
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [isSpecDrawerOpen, setIsSpecDrawerOpen] = useState<boolean>(false);
   const [bookingToast, setBookingToast] = useState<string | null>(null);
+  const [servicesOpen, setServicesOpen] = useState(false);
 
   const triggerToast = (msg: string) => {
     setBookingToast(msg);
@@ -40,30 +42,62 @@ export default function Home() {
     <div id="canvas-portal" className="min-h-screen bg-[#060608] text-[#F3F4F6] relative cinematic-grid font-sans selection:bg-[#00F0FF]/25 selection:text-[#00F0FF]">
       
       {/* 1. Minimal Header Frame */}
-      <header className="fixed top-0 left-0 w-full z-40 bg-[#060608]/80 backdrop-blur-md border-b border-white/[0.04]">
-        <div className="max-w-[1600px] mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
+      <header className="fixed top-0 left-0 w-full z-40 bg-[#060608]/80 backdrop-blur-lg border-b border-white/[0.04]">
+        <div className="relative max-w-[1600px] mx-auto px-6 lg:px-12 h-24 flex items-center">
           
           <NexoraHeader />
 
-          {/* Availability Indicators & Call to Action Links */}
-          <div className="flex items-center gap-8">
-            <div className="flex items-center gap-2">
-              <span className="relative flex h-2 w-2" aria-hidden="true">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00F0FF] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00F0FF]"></span>
-              </span>
-              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#00F0FF]">
-                Available for Contract
-              </span>
+          {/* Navigation */}
+          <nav className="hidden lg:flex items-center gap-10 ml-20">
+            <div className="relative">
+              {/* Web Design & Development */}
+              <button
+                onClick={() => document.getElementById('web-development')?.scrollIntoView({ behavior: 'smooth' })}
+                className="flex items-center gap-1 font-mono text-[16px] tracking-[0.2em] text-transparent bg-clip-text bg-gradient-to-r from-[#00F0FF] via-emerald-400 to-[#FF2EFF] hover:text-white transition-colors cursor-pointer"
+              >
+                <MonitorCog className="w-4 h-4 text-[#00F0FF] mr-2" />
+                <span className="text-sm uppercase">
+                  Web Design & Development
+                </span>
+              </button>
             </div>
             
-            <a 
-              href="#booking-desk" 
-              className="hidden sm:inline-flex items-center gap-1 font-mono text-[10px] tracking-widest text-[#00F0FF] hover:text-[#FF2EFF] border-b border-[#00F0FF]/20 hover:border-[#FF2EFF]/40 transition-all pb-0.5"
+              {/* Logo Design */}
+              <button
+                onClick={() => document.getElementById('logo-design')?.scrollIntoView({ behavior: 'smooth' })}
+                className="flex items-center gap-1 font-mono text-[16px] tracking-[0.2em] text-transparent bg-clip-text bg-gradient-to-r from-[#00F0FF] via-emerald-400 to-[#FF2EFF] hover:text-white transition-colors cursor-pointer"
+              >
+                <Palette className="w-4 h-4 text-[#FF2EFF] mr-2" />
+                <span className="text-sm uppercase">
+                  Logo Design
+                </span>
+              </button>
+
+              {/* Video Editing */}
+              <button
+                onClick={() => document.getElementById('video-portfolio')?.scrollIntoView({ behavior: 'smooth' })}
+                className="flex items-center gap-1 font-mono text-[16px] tracking-[0.2em] text-transparent bg-clip-text bg-gradient-to-r from-[#00F0FF] via-emerald-400 to-[#FF2EFF] hover:text-white transition-colors cursor-pointer"
+              >
+                <Clapperboard className="w-4 h-4 text-emerald-400 mr-2" />
+                <span className="text-sm uppercase">
+                  Video Editing
+                </span>
+              </button>
+
+
+            {/* BOOKING */}
+            <button
+              onClick={() =>
+                document
+                  .getElementById('studio-booking-desk')
+                  ?.scrollIntoView({ behavior: 'smooth' })
+              }
+              className="font-mono text-[16px] tracking-[0.2em] text-transparent bg-clip-text bg-gradient-to-r from-[#00F0FF] via-emerald-400 to-[#FF2EFF] hover:text-white transition-colors cursor-pointer"
             >
-              BOOK STUDIO
-            </a>
-          </div>
+              BOOKING
+            </button>
+
+          </nav>
         </div>
       </header>
 
@@ -71,16 +105,26 @@ export default function Home() {
       <AboutNexora />
 
       {/* 3. Sliding Immersive Hero */}
-      <SlidingHero onSelectProject={setActiveIndex} />
+      <section id="web-development">
+        <SlidingHero onSelectProject={setActiveIndex} />
+      </section>
+
+      <section id="logo-design">
+        <LogoDesign />
+      </section>
 
       {/* 3. The Video Editing & Finishing Portfolio Suite */}
-      <VideoPortfolio />
+      <section id="video-editing">
+        <VideoPortfolio />
+      </section>
 
       {/* 4. The Studio Booking Desk Component */}
-      <StudioBookingDesk 
-        onSuccessNotification={triggerToast} 
-        userEmail="njain1845@gmail.com"
-      />
+      <section id="studio-booking-desk">
+        <StudioBookingDesk
+          onSuccessNotification={triggerToast}
+          userEmail="njain1845@gmail.com"
+        />
+      </section>
 
       {/* 5. Minimalist Footer */}
       <footer className="border-t border-white/[0.04] py-12 text-center text-neutral-500">
