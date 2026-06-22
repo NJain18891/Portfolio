@@ -14,7 +14,7 @@ import {
 import VideoPortfolio from '@/components/VideoPortfolio';
 import EngineSpecsDrawer from '@/components/EngineSpecsDrawer';
 import StudioBookingDesk from '@/components/StudioBookingDesk';
-import SlidingHero from '@/components/SlidingHero';
+import WebPortfolio from '@/components/WebPortfolio';
 import AboutNexora from '@/components/AboutNexora';
 import { PROJECTS_DATA } from '@/lib/data';
 import NexoraHeader from '@/components/branding/NexoraHeader';
@@ -106,7 +106,7 @@ export default function Home() {
 
       {/* 3. Sliding Immersive Hero */}
       <section id="web-development">
-        <SlidingHero onSelectProject={setActiveIndex} />
+        <WebPortfolio onSelectProject={setActiveIndex} />
       </section>
 
       <section id="logo-design">

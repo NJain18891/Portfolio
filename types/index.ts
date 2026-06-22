@@ -6,13 +6,10 @@ export interface ProjectMetric {
 
 export interface ProjectSpec {
   title: string;
-  shortDesc: string;
-  tagline: string;
-  stack: string[];
-  architecture: string;
-  metrics: ProjectMetric[];
-  highlight: string;
   imagePath: string;
+  description: string;
+  techStack: string[];
+  websiteUrl: string;  
 }
 
 // Calendar Slot Shape
