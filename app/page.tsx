@@ -12,7 +12,6 @@ import {
 } from 'lucide-react';
 
 import VideoPortfolio from '@/components/VideoPortfolio';
-import EngineSpecsDrawer from '@/components/EngineSpecsDrawer';
 import StudioBookingDesk from '@/components/StudioBookingDesk';
 import WebPortfolio from '@/components/WebPortfolio';
 import AboutNexora from '@/components/AboutNexora';
@@ -132,18 +131,6 @@ export default function Home() {
           © 2026 NIKHIL JAIN // ALL RIGHTS RESERVED // SECURED VIA CLOUD RUN
         </p>
       </footer>
-
-      {/* 6. System Specs Drill-Down Side-Drawer */}
-      <AnimatePresence>
-        {isSpecDrawerOpen && (
-          <EngineSpecsDrawer 
-            project={activeProject}
-            isOpen={isSpecDrawerOpen}
-            onClose={() => setIsSpecDrawerOpen(false)}
-            onRequestIntegration={handleScrollToBooking}
-          />
-        )}
-      </AnimatePresence>
 
       {/* Floating global notification banner */}
       <AnimatePresence>
