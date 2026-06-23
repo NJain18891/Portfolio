@@ -89,7 +89,7 @@ export default function AboutNexora() {
                   className="p-5 rounded-xl border border-white/[0.05] bg-[#111116]/40 hover:bg-[#14141d]/85 hover:border-white/[0.1] transition-all duration-300 group"
                 >
                   <div className="flex items-center justify-between mb-3">
-                    <span className="font-mono text-[14px] tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-[#00F0FF] via-emerald-400 to-[#FF2EFF] mb-2 min-h-[2.5rem] flex items-center">
+                    <span className="font-serif text-[16px] tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-[#00F0FF] via-emerald-400 to-[#FF2EFF] mb-2 min-h-[2.5rem] flex items-center">
                       {stat.title}
                     </span>
                     <div className="p-1.5 rounded bg-white/[0.02] border border-white/5">

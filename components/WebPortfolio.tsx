@@ -22,6 +22,9 @@ export default function SlidingHero({
   const [progress, setProgress] = useState(0);
 
   const duration = 6000;
+  const screenshotHeight = "h-[500px]";
+  const infoPanelHeight = "h-[500px]";
+  const controlsHeight = "h-20";
 
   useEffect(() => {
     let animationFrameId: number;
@@ -65,20 +68,10 @@ export default function SlidingHero({
     setCurrentSlide(idx);
   };
 
-  const handleCtaClick = () => {
-    onSelectProject(currentSlide);
-
-    document
-      .getElementById('project-engine')
-      ?.scrollIntoView({
-        behavior: 'smooth',
-      });
-  };
-
   return (
     <section
       id="web-development"
-      className="relative max-w-[1600px] mx-auto px-6 lg:px-12 py-32"
+      className="relative max-w-[1600px] mx-auto px-6 lg:px-12 py-32 font-serif"
     >
       {/* Header */}
       <div className="max-w-3xl mb-10">
@@ -89,7 +82,7 @@ export default function SlidingHero({
             <Activity className="w-4 h-4 text-[#00F0FF]" />
           </div>
 
-          <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-neutral-500">
+          <span className="text-[10px] uppercase tracking-[0.3em] text-neutral-500">
             DEVELOPMENT • DIGITAL EXPERIENCES
           </span>
 
@@ -110,10 +103,10 @@ export default function SlidingHero({
       <div className="grid lg:grid-cols-[1.45fr_1fr] gap-8">
 
         {/* Screenshot Card */}
-        <div className="relative rounded-2xl overflow-hidden border border-white/[0.05] bg-[#111116]/40 min-h-[550px]">
+        <div className={`rounded-2xl overflow-hidden border border-white/[0.05] bg-[#111116]/40 flex flex-col ${screenshotHeight}`}>
 
           {/* Navigation Header */}
-          <div className="absolute top-6 left-6 right-6 z-20 flex items-center justify-between">
+          <div className={`px-6 flex items-center justify-between ${controlsHeight}`}>
 
             {/* Left Arrow */}
             <button
@@ -145,8 +138,7 @@ export default function SlidingHero({
               "
             >
               <span className="
-                font-mono
-                text-[10px]
+                text-[12px]
                 uppercase
                 tracking-[0.3em]
                 text-neutral-300
@@ -180,30 +172,31 @@ export default function SlidingHero({
 
           </div>
 
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentSlide}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.5 }}
-              className="absolute inset-0"
-            >
-              <Image
-                src={PROJECTS_DATA[currentSlide].imagePath}
-                alt={PROJECTS_DATA[currentSlide].title}
-                fill
-                priority
-                className="object-contain"
-              />
-            </motion.div>
+          <div className="relative flex-1">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentSlide}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5 }}
+                className="absolute inset-0"
+              >
+                <Image
+                  src={PROJECTS_DATA[currentSlide].imagePath}
+                  alt={PROJECTS_DATA[currentSlide].title}
+                  fill
+                  priority
+                  className="object-contain"
+                />
+              </motion.div>
 
-          </AnimatePresence>
-
+            </AnimatePresence>
+          </div>
         </div>
 
         {/* Information Panel */}
-        <div className="rounded-2xl border border-white/[0.05] bg-[#111116]/40 p-8 flex flex-col">
+        <div className={`rounded-2xl border border-white/[0.05] bg-[#111116]/40 p-8 flex flex-col ${infoPanelHeight}`}>
 
           <motion.div
             key={currentSlide}
@@ -214,7 +207,7 @@ export default function SlidingHero({
 
             <div className="mb-4">
 
-              <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-neutral-500">
+              <span className="text-[10px] tracking-[0.3em] uppercase text-neutral-500">
                 PROJECT {(currentSlide + 1)
                   .toString()
                   .padStart(2, '0')}
@@ -243,7 +236,6 @@ export default function SlidingHero({
                     border border-white/[0.06]
                     bg-black/30
                     text-xs
-                    font-mono
                     tracking-[0.15em]
                     text-neutral-300
                     uppercase
@@ -257,7 +249,7 @@ export default function SlidingHero({
             </div>
 
             {/* Buttons */}
-            <div className="flex flex-col gap-4 mt-auto">
+            <div className="flex flex-col mt-auto">
 
               <a
                 href={PROJECTS_DATA[currentSlide].websiteUrl}
@@ -283,22 +275,6 @@ export default function SlidingHero({
                 <ArrowRight className="w-4 h-4" />
 
               </a>
-
-              <button
-                onClick={handleCtaClick}
-                className="
-                px-6
-                py-4
-                rounded-xl
-                border border-white/[0.05]
-                bg-white/[0.02]
-                hover:bg-white/[0.05]
-                text-neutral-300
-                transition-all
-                "
-              >
-                VIEW PROJECT DETAILS
-              </button>
             </div>
           </motion.div>
         </div>

@@ -10,18 +10,21 @@ const LOGO_DATA = [
     image: '/logos/vanguard-logo.png',
     name: 'Vanguard Astro',
     category: 'Deep Space Travel Brand',
+    traits: 'FUTURISTIC • AEROSPACE • PREMIUM',
   },
   {
     id: 2,
     image: '/logos/zora-logo.png',
     name: 'Zora',
     category: 'Marketplace Brand',
+    traits: 'MODERN • MINIMAL • FINANCE',
   },
   {
     id: 3,
     image: '/logos/oria-logo.png',
     name: 'Oria',
     category: 'Healthy Food Consumer Brand',
+    traits: 'ORGANIC • NATURAL • WELLNESS',
   },
 ];
 
@@ -29,7 +32,7 @@ export default function LogoDesign() {
   return (
     <section
       id="logo-design"
-      className="relative max-w-[1600px] mx-auto px-6 lg:px-12 py-32"
+      className="relative max-w-[1600px] mx-auto px-6 lg:px-12 py-32 font-serif"
     >
       {/* Section Header */}
       <div className="max-w-3xl mb-20">
@@ -38,7 +41,7 @@ export default function LogoDesign() {
             <Palette className="w-4 h-4 text-[#FF2EFF]" />
           </div>
 
-          <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-neutral-500">
+          <span className="text-[10px] uppercase tracking-[0.3em] text-neutral-500">
             BRANDING • VISUAL IDENTITY
           </span>
         </div>
@@ -104,7 +107,6 @@ export default function LogoDesign() {
             <div className="p-6">
               <h3
                 className="
-                  font-mono
                   uppercase
                   tracking-[0.2em]
                   text-sm
@@ -118,6 +120,30 @@ export default function LogoDesign() {
               <p className="mt-3 text-xs text-neutral-400 leading-relaxed">
                 {logo.category}
               </p>
+
+              <div className="overflow-hidden mt-3">
+                <p
+                  className="
+                    text-[10px]
+                    uppercase
+                    tracking-[0.3em]
+                    text-neutral-500
+
+                    opacity-0
+                    max-h-0
+                    translate-y-2
+
+                    group-hover:opacity-100
+                    group-hover:max-h-10
+                    group-hover:translate-y-0
+
+                    transition-all
+                    duration-500
+                  "
+                >
+                  {logo.traits}
+                </p>
+              </div>
             </div>
           </motion.div>
         ))}

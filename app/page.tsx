@@ -47,12 +47,12 @@ export default function Home() {
           <NexoraHeader />
 
           {/* Navigation */}
-          <nav className="hidden lg:flex items-center gap-10 ml-20">
+          <nav className="hidden lg:flex items-center gap-10 ml-12">
             <div className="relative">
               {/* Web Design & Development */}
               <button
                 onClick={() => document.getElementById('web-development')?.scrollIntoView({ behavior: 'smooth' })}
-                className="flex items-center gap-1 font-mono text-[16px] tracking-[0.2em] text-transparent bg-clip-text bg-gradient-to-r from-[#00F0FF] via-emerald-400 to-[#FF2EFF] hover:text-white transition-colors cursor-pointer"
+                className="flex items-center gap-1 font-mono text-[16px] tracking-[0.2em] text-white hover:text-white transition-colors cursor-pointer"
               >
                 <MonitorCog className="w-4 h-4 text-[#00F0FF] mr-2" />
                 <span className="text-sm uppercase">
@@ -64,7 +64,7 @@ export default function Home() {
               {/* Logo Design */}
               <button
                 onClick={() => document.getElementById('logo-design')?.scrollIntoView({ behavior: 'smooth' })}
-                className="flex items-center gap-1 font-mono text-[16px] tracking-[0.2em] text-transparent bg-clip-text bg-gradient-to-r from-[#00F0FF] via-emerald-400 to-[#FF2EFF] hover:text-white transition-colors cursor-pointer"
+                className="flex items-center gap-1 font-mono text-[16px] tracking-[0.2em] text-white hover:text-white transition-colors cursor-pointer"
               >
                 <Palette className="w-4 h-4 text-[#FF2EFF] mr-2" />
                 <span className="text-sm uppercase">
@@ -75,7 +75,7 @@ export default function Home() {
               {/* Video Editing */}
               <button
                 onClick={() => document.getElementById('video-portfolio')?.scrollIntoView({ behavior: 'smooth' })}
-                className="flex items-center gap-1 font-mono text-[16px] tracking-[0.2em] text-transparent bg-clip-text bg-gradient-to-r from-[#00F0FF] via-emerald-400 to-[#FF2EFF] hover:text-white transition-colors cursor-pointer"
+                className="flex items-center gap-1 font-mono text-[16px] tracking-[0.2em] text-white hover:text-white transition-colors cursor-pointer"
               >
                 <Clapperboard className="w-4 h-4 text-emerald-400 mr-2" />
                 <span className="text-sm uppercase">
@@ -93,7 +93,7 @@ export default function Home() {
               }
               className="font-mono text-[16px] tracking-[0.2em] text-transparent bg-clip-text bg-gradient-to-r from-[#00F0FF] via-emerald-400 to-[#FF2EFF] hover:text-white transition-colors cursor-pointer"
             >
-              BOOKING
+              Contact Us
             </button>
 
           </nav>
