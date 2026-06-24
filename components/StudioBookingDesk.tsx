@@ -25,6 +25,7 @@ export default function StudioBookingDesk({
   const [selectedDate, setSelectedDate] = useState<number | null>(null);
   const [clientName, setClientName] = useState<string>('');
   const [projectType, setProjectType] = useState<string>('Interactive Prototype');
+  const [timeline, setTimeline] = useState<string>('Timeline');
   const [clientNote, setClientNote] = useState<string>('');
   const [copiedEmail, setCopiedEmail] = useState<boolean>(false);
   const [localError, setLocalError] = useState<string | null>(null);
@@ -68,25 +69,28 @@ export default function StudioBookingDesk({
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
         
         <div className="lg:col-span-5 space-y-6">
-          <p className="font-mono text-[10px] tracking-[0.3em] text-emerald-400 uppercase">
-            {"// STUDIO CONTRACT BOOKING"}
+          <p className="font-mono text-[10px] tracking-[0.3em] text-[#00F0FF] uppercase">
+            {"// PROJECT ENQUIRY "}
           </p>
           <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-white font-light tracking-tight leading-[1.1]">
-            Have a prototype or design you need brought to life?
+            Ready to bring your next project to life?
           </h2>
           <p className="text-sm text-neutral-400 leading-relaxed max-w-md font-light">
-            Integrate with high-precision engineering workflows. Secure your studio development reservation or get directly in touch for urgent consulting.
+            Whether you're launching a new brand, refreshing an existing business, or creating content for your audience, let's discuss how Nexora can help.
           </p>
 
           <div className="pt-6">
             <p className="font-mono text-[10px] tracking-widest text-neutral-500 uppercase mb-3">
-              DIRECT INTAKE PORTAL
+              DIRECT CONTACT
+            </p>
+            <p className="font-mono text-[9px] tracking-widest text-neutral-500 uppercase mb-3">
+              Typically replies within 24 hours
             </p>
             
             {/* Copyable direct email component */}
             <div 
               onClick={handleCopyEmail}
-              className="inline-flex items-center justify-between border border-white/[0.06] hover:border-emerald-500/30 bg-white/[0.01] hover:bg-emerald-500/[0.02] p-4 rounded-lg w-full max-w-sm cursor-pointer transition-all duration-300 group"
+              className="inline-flex items-center justify-between border border-white/[0.06] hover:border-[#00F0FF]/20 bg-white/[0.01] hover:bg-[#00F0FF] p-4 rounded-lg w-full max-w-sm cursor-pointer transition-all duration-300 group"
               id="copy-email-dashboard-pill"
               role="button"
               tabIndex={0}
@@ -98,11 +102,11 @@ export default function StudioBookingDesk({
               }}
             >
               <div className="flex items-center gap-3">
-                <span className="p-2 border border-white/10 rounded bg-[#09090D] group-hover:border-emerald-500/30 transition-colors">
+                <span className="p-2 border border-white/10 rounded bg-[#09090D] group-hover:border-[#00F0FF]/20 transition-colors">
                   {copiedEmail ? (
-                    <Check className="w-4 h-4 text-emerald-400 animate-scale" />
+                    <Check className="w-4 h-4 text-[#00F0FF] animate-scale" />
                   ) : (
-                    <Copy className="w-4 h-4 text-[#9CA3AF] group-hover:text-emerald-400 transition-colors" />
+                    <Copy className="w-4 h-4 text-[#9CA3AF] group-hover:text-[#00F0FF] transition-colors" />
                   )}
                 </span>
                 <div>
@@ -110,133 +114,132 @@ export default function StudioBookingDesk({
                   <div className="text-sm font-mono text-white tracking-wider mt-0.5">{userEmail}</div>
                 </div>
               </div>
-              <div className="font-mono text-[9px] text-emerald-400 opacity-0 group-hover:opacity-100 transition-all duration-300 uppercase tracking-widest select-none">
+              <div className="font-mono text-[9px] text-[#00F0FF] opacity-0 group-hover:opacity-100 transition-all duration-300 uppercase tracking-widest select-none">
                 {copiedEmail ? 'Copied' : 'Copy'}
               </div>
             </div>
           </div>
+
+          <div className="pt-6 space-y-3">
+            <div className="flex items-center gap-3 text-neutral-300 text-sm">
+              <Check className="w-4 h-4 text-[#00F0FF]" />
+              Responsive Website Design
+            </div>
+
+            <div className="flex items-center gap-3 text-neutral-300 text-sm">
+              <Check className="w-4 h-4 text-[#00F0FF]" />
+              Brand Identity & Logos
+            </div>
+
+            <div className="flex items-center gap-3 text-neutral-300 text-sm">
+              <Check className="w-4 h-4 text-[#00F0FF]" />
+              Short-Form Video Editing
+            </div>
+          </div>
+
         </div>
 
-        <div className="lg:col-span-7 bg-[#09090D] border border-white/[0.05] p-6 sm:p-10 rounded-2xl relative shadow-2xl">
+        <div className="lg:col-span-7 before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_top_right,rgba(0,240,255,0.06),transparent_50%)] before:pointer-events-none before:rounded-2xl bg-[#09090D] border border-white/[0.05] p-6 sm:p-10 rounded-2xl relative shadow-2xl">
           <div className="absolute top-4 right-4 flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/20 border border-emerald-500 animate-pulse" />
-            <span className="font-mono text-[8px] text-emerald-400 tracking-widest">BOOKER V3.2 ONLINE</span>
+            <span className="w-2.5 h-2.5 rounded-full bg-[#00F0FF] border border-emerald-500 animate-pulse" />
+            <span className="font-mono text-[12px] text-[#00F0FF] tracking-widest"> NEXORA CLIENT PORTAL </span>
           </div>
 
           <form onSubmit={handleReserve} className="space-y-8">
-            
-            {/* Calendar Grid Integration */}
-            <div>
-              <div className="flex items-center justify-between mb-4">
-                <span className="font-mono text-[11px] font-bold tracking-[0.25em] text-[#E5E7EB] uppercase">
-                  SELECT JUNE 2026 SLOT
-                </span>
-                <span className="font-mono text-[10px] text-neutral-500">
-                  JUNE 2026 {"//"} EST
-                </span>
-              </div>
-
-              <div className="grid grid-cols-7 gap-1.5 text-center">
-                {/* Calendar Headers */}
-                {['M', 'T', 'W', 'T', 'F', 'S', 'S'].map((day, hIdx) => (
-                  <div key={hIdx} className="font-mono text-[9px] text-neutral-600 uppercase font-bold py-1 select-none">
-                    {day}
-                  </div>
-                ))}
-
-                {/* Calendar Slots */}
-                {JUNI_CALENDAR_SLOTS.map((item) => {
-                  const isSelected = selectedDate === item.date;
-                  if (!item.available) {
-                    return (
-                      <div 
-                        key={item.date} 
-                        className="border border-white/[0.02] bg-[#050508] p-3 rounded text-[#374151] font-mono text-xs flex flex-col items-center justify-center relative group select-none h-12"
-                      >
-                        <span className="opacity-40">{item.date}</span>
-                        <Lock className="w-2.5 h-2.5 text-[#EF4444]/20 absolute bottom-1 cursor-not-allowed" />
-                      </div>
-                    );
-                  }
-                  return (
-                    <button
-                      type="button"
-                      key={item.date}
-                      onClick={() => setSelectedDate(item.date)}
-                      className={`border rounded p-3 h-12 font-mono text-xs flex flex-col items-center justify-center transition-all cursor-pointer relative ${
-                        isSelected 
-                          ? 'border-emerald-500 bg-emerald-500/10 text-emerald-400 font-bold scale-[1.03] z-10 glow-emerald' 
-                          : 'border-white/[0.05] hover:border-emerald-500/30 text-[#D1D5DB] hover:text-white'
-                      }`}
-                    >
-                      <span>{item.date}</span>
-                      <span className={`w-1/2 h-[2px] rounded-full absolute bottom-1.5 ${
-                        isSelected ? 'bg-emerald-400' : 'bg-emerald-500/40'
-                      }`} />
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Error notifications */}
-            <AnimatePresence>
-              {localError && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  className="bg-red-500/10 border border-red-500/20 text-red-400 text-xs px-4 py-3 rounded flex items-center gap-2 font-mono"
+            <div className="flex flex-wrap gap-3">
+              {[
+                'Web Design',
+                'Logo Design',
+                'Video Editing',
+              ].map((service) => (
+                <button
+                  key={service}
+                  type="button"
+                  className="
+                  px-4 py-2
+                  rounded-full
+                  border border-white/[0.08]
+                  bg-white/[0.02]
+                  text-xs
+                  font-mono
+                  tracking-[0.2em]
+                  uppercase
+                  text-neutral-400
+                  hover:border-[#00F0FF]/20
+                  hover:text-[#00F0FF]
+                  transition-all
+                  "
                 >
-                  <AlertCircle className="w-4 h-4 shrink-0" />
-                  <span>{localError}</span>
-                </motion.div>
-              )}
-            </AnimatePresence>
-
+                  {service}
+                </button>
+              ))}
+            </div>
+            
             {/* Project details fields */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div>
                 <label className="block font-mono text-[9px] tracking-widest text-[#9CA3AF] uppercase mb-2">
-                  YOUR NAME OR ORG
+                  Name or Business
                 </label>
                 <input 
                   type="text" 
                   value={clientName}
                   onChange={(e) => setClientName(e.target.value)}
                   placeholder="E.g., Founders, VCs"
-                  className="w-full bg-black/40 border border-white/[0.05] focus:border-emerald-500/60 focus:outline-[#059669]/20 p-3 rounded font-mono text-xs text-[#F3F4F6] transition-colors"
+                  className="w-full bg-black/40 border border-white/[0.05] focus:border-[#00F0FF]/20 focus:outline-[#059669]/20 p-3 rounded font-mono text-xs text-[#F3F4F6] transition-colors"
                 />
               </div>
 
               <div>
                 <label className="block font-mono text-[9px] tracking-widest text-[#9CA3AF] uppercase mb-2">
-                  PROJECT CORE CATEGORY
+                  Service Required
                 </label>
                 <select 
                   value={projectType}
                   onChange={(e) => setProjectType(e.target.value)}
-                  className="w-full bg-black/40 border border-white/[0.05] focus:border-emerald-500/60 focus:outline-[#059669]/20 p-3 rounded font-mono text-xs text-[#F2F3F5] transition-colors cursor-pointer appearance-none"
+                  className="w-full bg-black/40 border border-white/[0.05] focus:border-[#00F0FF]/20 focus:outline-[#059669]/20 p-3 rounded font-mono text-xs text-[#F2F3F5] transition-colors cursor-pointer appearance-none"
                 >
-                  <option className="bg-[#09090D]" value="Interactive Prototype">Interactive Prototype</option>
-                  <option className="bg-[#09090D]" value="SaaS Interface">SaaS Interface</option>
-                  <option className="bg-[#09090D]" value="Full-Stack MVP">Full-Stack MVP</option>
-                  <option className="bg-[#09090D]" value="Design & Consulting">Design &amp; Consulting</option>
+                  <option className="bg-[#09090D]" value="Web Design & Development">Web Design & Development</option>
+                  <option className="bg-[#09090D]" value="Logo Design">Logo Design</option>
+                  <option className="bg-[#09090D]" value="Video Editing">Video Editing</option>
+                  <option className="bg-[#09090D]" value="Multiple Services">Multiple Services</option>
+                  <option className="bg-[#09090D]" value="Not Sure Yet">Not Sure Yet</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block font-mono text-[9px] tracking-widest text-[#9CA3AF] uppercase mb-2">
+                  DESIRED TIMELINE
+                </label>
+                <select 
+                  value={timeline}
+                  onChange={(e) => setTimeline(e.target.value)}
+                  className="w-full bg-black/40 border border-white/[0.05] focus:border-[#00F0FF]/20 focus:outline-[#059669]/20 p-3 rounded font-mono text-xs text-[#F2F3F5] transition-colors cursor-pointer appearance-none"
+                >
+                  <option className="bg-[#09090D]" value="ASAP">ASAP</option>
+                  <option className="bg-[#09090D]" value="1-2 Weeks">1-2 Weeks</option>
+                  <option className="bg-[#09090D]" value="Within a month">Within a month</option>
+                  <option className="bg-[#09090D]" value="Flexible">Flexible</option>
                 </select>
               </div>
             </div>
 
             <div>
               <label className="block font-mono text-[9px] tracking-widest text-[#9CA3AF] uppercase mb-2">
-                PROJECT SCOPE DETAILS (OPTIONAL)
+                Tell Me About Your Project
               </label>
               <textarea 
                 rows={3}
                 value={clientNote}
                 onChange={(e) => setClientNote(e.target.value)}
-                placeholder="Outline the interface constraints and performance goals."
-                className="w-full bg-black/40 border border-white/[0.05] focus:border-emerald-500/60 focus:outline-[#059669]/20 p-3 rounded font-mono text-xs text-[#F3F4F6] transition-colors resize-none"
+                placeholder="Tell me about your project, goals, audience, and anything you'd like included."
+                className="w-full bg-black/40 border border-white/[0.05] focus:border-[#00F0FF]/20 focus:outline-[#059669]/20 p-3 rounded font-mono text-xs text-[#F3F4F6] transition-colors resize-none"
               />
+            </div>
+
+            <div className="flex items-center gap-2 text-[10px] text-neutral-500 font-mono tracking-wider">
+              <Sparkles className="w-3 h-3 text-[#00F0FF]" />
+              Typical response time: within 24 hours
             </div>
 
             <div className="pt-2">
@@ -244,7 +247,7 @@ export default function StudioBookingDesk({
                 type="submit"
                 className="w-full inline-flex items-center justify-center gap-2 font-mono text-[11px] tracking-[0.25em] text-[#060608] hover:text-black bg-emerald-400 hover:bg-emerald-300 py-3.5 px-6 rounded-lg transition-all cursor-pointer font-bold uppercase shadow-lg shadow-emerald-500/10"
               >
-                SEND RESERVATION REQUEST <ArrowUpRight className="w-4 h-4" />
+                SEND PROJECT INQUIRY <ArrowUpRight className="w-4 h-4" />
               </button>
             </div>
 

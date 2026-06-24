@@ -18,54 +18,54 @@ interface VideoTile {
 
 const VIDEOS_DATA: VideoTile[] = [
   {
-    id: "neon-cyberpunk",
-    title: "Cinematic Brand Promo",
-    client: "Synthesis Media",
-    duration: "45",
+    id: "startive-launch",
+    title: "STARTive Bootcamp Launch",
+    client: "STARTive",
+    duration: "60",
     videoPath:
       "/Startive_vid1.mp4",
     thumbnailPath: "",
       software: [
-      "Premiere Pro",
-      "After Effects",
-      "Photoshop"
+      "Clipchamp",
+      "Mobile Production",
+      "Dynamic Subtitling"
     ],
     description:
-      "Promotional edit focused on cinematic pacing, color grading, and immersive visual storytelling."
+      "Short-form promotional reel created to introduce STARTive's new business bootcamp program. Produced from concept to final edit to generate awareness, excitement, and engagement across social media."
   },
 
   {
-    id: "urban-matrix",
-    title: "Urban Night Showcase",
-    client: "Vertex Corp",
-    duration: "62",
+    id: "suchitra-art",
+    title: "Art Process Reel",
+    client: "Suchitra Art Studio",
+    duration: "69",
     videoPath:
       "/Sketching_vid1.mp4",
     thumbnailPath: "",
       software: [
-      "Premiere Pro",
-      "After Effects",
-      "DaVinci Resolve"
+      "ShotCut",
+      "Mobile Production",
+      "Tripod Filming"
     ],
     description:
-      "High-energy promotional sequence combining visual effects, motion graphics, and dynamic transitions."
+      "Instagram reel designed to capture attention through a fast-paced sketching time-lapse. Combined process footage with a persistent artwork preview to keep viewers engaged and encourage longer watch times."
   },
 
   {
-    id: "building-architect",
-    title: "Architectural Motion Piece",
-    client: "Lumen Studios",
-    duration: "30",
+    id: "sarvam-ai",
+    title: "AI Product Showcase",
+    client: "Sarvam AI",
+    duration: "45",
     videoPath:
       "/Sarvam_vid1.mp4",
     thumbnailPath: "",
       software: [
-      "Premiere Pro",
-      "After Effects",
-      "Photoshop"
+      "Clipchamp",
+      "Audio Editing",
+      "Dynamic Subtitling"
     ],
     description:
-      "Short-form showcase designed around rhythm, lighting, and polished motion design."
+      "Edited a 25-minute educational presentation into a concise 45-second highlight video, combining custom music, dynamic pacing, and a cinematic opening sequence to communicate key product capabilities in an engaging format."
   }
 ];
 
