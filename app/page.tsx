@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import Image from 'next/image';
 import { 
   X,
   Sparkles,
@@ -18,6 +19,7 @@ import AboutNexora from '@/components/AboutNexora';
 import { PROJECTS_DATA } from '@/lib/data';
 import NexoraHeader from '@/components/branding/NexoraHeader';
 import LogoDesign from '@/components/LogoDesign';
+import NexoraWordmark from '../components/branding/NexoraWordmark';
 
 export default function Home() {
   const [activeIndex, setActiveIndex] = useState<number>(0);
@@ -177,11 +179,9 @@ export default function Home() {
 
             {/* Brand */}
             <div>
-              <div className="font-mono text-[11px] tracking-[0.4em] uppercase text-[#00F0FF] mb-5">
-                Nexora
-              </div>
-
-              <p className="text-neutral-400 leading-relaxed max-w-sm">
+              
+              <NexoraWordmark/>
+              <p className="text-neutral-400 leading-relaxed max-w-sm pt-4">
                 Designing websites, visual identities and digital content
                 that help businesses launch, grow and scale with confidence.
               </p>
