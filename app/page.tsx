@@ -125,11 +125,166 @@ export default function Home() {
         />
       </section>
 
-      {/* 5. Minimalist Footer */}
-      <footer className="border-t border-white/[0.04] py-12 text-center text-neutral-500">
-        <p className="font-mono text-[9px] tracking-[0.4em] uppercase">
-          © 2026 NIKHIL JAIN // ALL RIGHTS RESERVED // SECURED VIA CLOUD RUN
-        </p>
+      {/* 5. Nexora Footer */}
+      <footer className="relative border-t border-white/[0.04] overflow-hidden">
+
+        {/* subtle background glow */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,240,255,0.04),transparent_65%)] pointer-events-none" />
+
+        <div className="max-w-[1600px] mx-auto px-6 lg:px-12 relative z-10">
+
+          {/* Final CTA */}
+          <div className="py-24 text-center border-b border-white/[0.04]">
+            <p className="font-mono text-[10px] tracking-[0.4em] uppercase text-[#00F0FF] mb-4">
+              Ready To Start?
+            </p>
+
+            <h2 className="font-serif text-4xl md:text-6xl text-white leading-tight max-w-4xl mx-auto">
+              Let&apos;s build something exceptional together.
+            </h2>
+
+            <button
+              onClick={() =>
+                document
+                  .getElementById('studio-booking-desk')
+                  ?.scrollIntoView({ behavior: 'smooth' })
+              }
+              className="
+              mt-10
+              px-8
+              py-4
+              rounded-full
+              border border-[#00F0FF]/20
+              bg-[#00F0FF]/10
+              text-[#00F0FF]
+              font-mono
+              text-xs
+              tracking-[0.35em]
+              uppercase
+              hover:bg-[#00F0FF]
+              hover:text-black
+              transition-all
+              duration-300
+              cursor-pointer
+              "
+            >
+              Start A Project
+            </button>
+          </div>
+
+          {/* Main Footer Content */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-16 py-20">
+
+            {/* Brand */}
+            <div>
+              <div className="font-mono text-[11px] tracking-[0.4em] uppercase text-[#00F0FF] mb-5">
+                Nexora
+              </div>
+
+              <p className="text-neutral-400 leading-relaxed max-w-sm">
+                Designing websites, visual identities and digital content
+                that help businesses launch, grow and scale with confidence.
+              </p>
+            </div>
+
+            {/* Navigation */}
+            <div>
+              <div className="font-mono text-[10px] tracking-[0.35em] uppercase text-neutral-500 mb-5">
+                Services
+              </div>
+
+              <div className="flex flex-col gap-4">
+
+                <button
+                  onClick={() =>
+                    document
+                      .getElementById('web-development')
+                      ?.scrollIntoView({ behavior: 'smooth' })
+                  }
+                  className="text-left text-neutral-300 hover:text-[#00F0FF] transition-colors"
+                >
+                  Web Design & Development
+                </button>
+
+                <button
+                  onClick={() =>
+                    document
+                      .getElementById('logo-design')
+                      ?.scrollIntoView({ behavior: 'smooth' })
+                  }
+                  className="text-left text-neutral-300 hover:text-[#FF2EFF] transition-colors"
+                >
+                  Logo Design
+                </button>
+
+                <button
+                  onClick={() =>
+                    document
+                      .getElementById('video-portfolio')
+                      ?.scrollIntoView({ behavior: 'smooth' })
+                  }
+                  className="text-left text-neutral-300 hover:text-emerald-400 transition-colors"
+                >
+                  Video Editing
+                </button>
+
+                <button
+                  onClick={() =>
+                    document
+                      .getElementById('studio-booking-desk')
+                      ?.scrollIntoView({ behavior: 'smooth' })
+                  }
+                  className="text-left text-neutral-300 hover:text-white transition-colors"
+                >
+                  Project Enquiry
+                </button>
+
+              </div>
+            </div>
+
+            {/* Contact */}
+            <div>
+              <div className="font-mono text-[10px] tracking-[0.35em] uppercase text-neutral-500 mb-5">
+                Contact
+              </div>
+
+              <div className="space-y-3">
+
+                <a
+                  href="mailto:njain1845@gmail.com"
+                  className="
+                  text-white
+                  hover:text-[#00F0FF]
+                  transition-colors
+                  break-all
+                  "
+                >
+                  njain1845@gmail.com
+                </a>
+
+                <p className="text-sm text-neutral-500">
+                  Typically replies within 24 hours.
+                </p>
+
+              </div>
+            </div>
+
+          </div>
+
+          {/* Bottom Bar */}
+          <div className="border-t border-white/[0.04] py-8 flex flex-col md:flex-row justify-between items-center gap-4">
+
+            <p className="font-mono text-[9px] tracking-[0.3em] uppercase text-neutral-500">
+              © 2026 Nexora Studio. All Rights Reserved.
+            </p>
+
+            <p className="font-mono text-[9px] tracking-[0.3em] uppercase text-neutral-600">
+              Built With Next.js • Hosted On Vercel
+            </p>
+
+          </div>
+
+        </div>
       </footer>
 
       {/* Floating global notification banner */}

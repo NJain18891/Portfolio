@@ -24,11 +24,13 @@ export default function StudioBookingDesk({
 }: StudioBookingDeskProps) {
   const [selectedDate, setSelectedDate] = useState<number | null>(null);
   const [clientName, setClientName] = useState<string>('');
-  const [projectType, setProjectType] = useState<string>('Interactive Prototype');
-  const [timeline, setTimeline] = useState<string>('Timeline');
+  const [clientEmail, setClientEmail] = useState('');
+  const [projectType, setProjectType] = useState<string>('Web Design & Development');
+  const [timeline, setTimeline] = useState<string>('ASAP');
   const [clientNote, setClientNote] = useState<string>('');
   const [copiedEmail, setCopiedEmail] = useState<boolean>(false);
   const [localError, setLocalError] = useState<string | null>(null);
+  const [isSending, setIsSending] = useState(false);
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(userEmail);
@@ -36,29 +38,74 @@ export default function StudioBookingDesk({
     setTimeout(() => setCopiedEmail(false), 2000);
   };
 
-  const handleReserve = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!selectedDate) {
-      setLocalError('Please select an available calendar slot.');
-      setTimeout(() => setLocalError(null), 3500);
-      return;
-    }
-    if (!clientName.trim()) {
-      setLocalError('Please enter your name or company reference.');
-      setTimeout(() => setLocalError(null), 3500);
-      return;
+  const handleReserve = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  if (!clientName.trim()) {
+    setLocalError('Please enter your name or company reference.');
+    setTimeout(() => setLocalError(null), 3500);
+    return;
+  }
+
+  if (!clientEmail.trim()) {
+    setLocalError('Please enter an email address.');
+    setTimeout(() => setLocalError(null), 3500);
+    return;
+  }
+
+  if (!/\S+@\S+\.\S+/.test(clientEmail)) {
+    setLocalError('Please enter a valid email address.');
+    setTimeout(() => setLocalError(null), 3500);
+    return;
+  }
+
+  if (!clientNote.trim()) {
+    setLocalError('Please provide some project details.');
+    setTimeout(() => setLocalError(null), 3500);
+    return;
+  }
+
+  try {
+    setIsSending(true);
+    setLocalError(null);
+
+    const response = await fetch('/api/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: clientName,
+        email: clientEmail,
+        service: projectType,
+        timeline,
+        message: clientNote,
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to send');
     }
 
-    setLocalError(null);
     onSuccessNotification(
-      `Reservation requested for June ${selectedDate}, 2026. Nikhil will contact you within 4 hours.`
+      'Project enquiry sent successfully. I will get back to you shortly.'
     );
 
-    // Clear state
     setClientName('');
+    setClientEmail('');
     setClientNote('');
-    setSelectedDate(null);
-  };
+    setProjectType('Web Design & Development');
+    setTimeline('ASAP');
+  } catch (error) {
+    console.error(error);
+
+    setLocalError(
+      'Unable to send enquiry. Please try again or contact me directly.'
+    );
+  } finally {
+    setIsSending(false);
+  }
+};
 
   return (
     <div className="w-full bg-[#060608] relative z-30 pt-24 border-t border-white/[0.04]">
@@ -148,34 +195,36 @@ export default function StudioBookingDesk({
           <form onSubmit={handleReserve} className="space-y-8">
             <div className="flex flex-wrap gap-3">
               {[
-                'Web Design',
+                'Web Design & Development',
                 'Logo Design',
                 'Video Editing',
               ].map((service) => (
                 <button
                   key={service}
                   type="button"
-                  className="
-                  px-4 py-2
-                  rounded-full
-                  border border-white/[0.08]
-                  bg-white/[0.02]
-                  text-xs
-                  font-mono
-                  tracking-[0.2em]
-                  uppercase
-                  text-neutral-400
-                  hover:border-[#00F0FF]/20
-                  hover:text-[#00F0FF]
-                  transition-all
-                  "
+                  onClick={() => setProjectType(service)}
+                  className={`
+                    px-4 py-2
+                    rounded-full
+                    border
+                    text-xs
+                    font-mono
+                    tracking-[0.2em]
+                    uppercase
+                    transition-all
+
+                    ${
+                      projectType === service
+                        ? 'border-[#00F0FF]/40 bg-[#00F0FF]/10 text-[#00F0FF]'
+                        : 'border-white/[0.08] bg-white/[0.02] text-neutral-400 hover:border-[#00F0FF]/20 hover:text-[#00F0FF]'
+                    }
+                  `}
                 >
                   {service}
                 </button>
               ))}
             </div>
             
-            {/* Project details fields */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div>
                 <label className="block font-mono text-[9px] tracking-widest text-[#9CA3AF] uppercase mb-2">
@@ -187,6 +236,32 @@ export default function StudioBookingDesk({
                   onChange={(e) => setClientName(e.target.value)}
                   placeholder="E.g., Founders, VCs"
                   className="w-full bg-black/40 border border-white/[0.05] focus:border-[#00F0FF]/20 focus:outline-[#059669]/20 p-3 rounded font-mono text-xs text-[#F3F4F6] transition-colors"
+                />
+              </div>
+
+              <div>
+                <label className="block font-mono text-[9px] tracking-widest text-[#9CA3AF] uppercase mb-2">
+                  Email Address
+                </label>
+
+                <input
+                  type="email"
+                  value={clientEmail}
+                  onChange={(e) => setClientEmail(e.target.value)}
+                  placeholder="name@example.com"
+                  className="
+                  w-full
+                  bg-black/40
+                  border border-white/[0.05]
+                  focus:border-[#00F0FF]/20
+                  focus:outline-[#059669]/20
+                  p-3
+                  rounded
+                  font-mono
+                  text-xs
+                  text-[#F3F4F6]
+                  transition-colors
+                  "
                 />
               </div>
 
@@ -242,12 +317,52 @@ export default function StudioBookingDesk({
               Typical response time: within 24 hours
             </div>
 
+            {localError && (
+              <div className="rounded-lg border border-red-500/20 bg-red-500/5 p-3">
+                <p className="text-xs text-red-400 font-mono">
+                  {localError}
+                </p>
+              </div>
+            )}
+
             <div className="pt-2">
               <button
                 type="submit"
-                className="w-full inline-flex items-center justify-center gap-2 font-mono text-[11px] tracking-[0.25em] text-[#060608] hover:text-black bg-emerald-400 hover:bg-emerald-300 py-3.5 px-6 rounded-lg transition-all cursor-pointer font-bold uppercase shadow-lg shadow-emerald-500/10"
+                disabled={isSending}
+                className="
+                w-full
+                inline-flex
+                items-center
+                justify-center
+                gap-2
+                font-mono
+                text-[11px]
+                tracking-[0.25em]
+                text-[#060608]
+                hover:text-black
+                bg-emerald-400
+                hover:bg-emerald-300
+                py-3.5
+                px-6
+                rounded-lg
+                transition-all
+                cursor-pointer
+                font-bold
+                uppercase
+                shadow-lg
+                shadow-emerald-500/10
+                disabled:opacity-50
+                disabled:cursor-not-allowed
+                "
               >
-                SEND PROJECT INQUIRY <ArrowUpRight className="w-4 h-4" />
+                {isSending ? (
+                  'SENDING...'
+                ) : (
+                  <>
+                    SEND PROJECT INQUIRY
+                    <ArrowUpRight className="w-4 h-4" />
+                  </>
+                )}
               </button>
             </div>
 
