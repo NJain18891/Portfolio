@@ -9,7 +9,8 @@ import {
   ChevronDown,
   MonitorCog,
   Palette,
-  Clapperboard
+  Clapperboard,
+  Menu
 } from 'lucide-react';
 
 import VideoPortfolio from '@/components/VideoPortfolio';
@@ -26,6 +27,7 @@ export default function Home() {
   const [isSpecDrawerOpen, setIsSpecDrawerOpen] = useState<boolean>(false);
   const [bookingToast, setBookingToast] = useState<string | null>(null);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const triggerToast = (msg: string) => {
     setBookingToast(msg);
@@ -44,9 +46,31 @@ export default function Home() {
       
       {/* 1. Minimal Header Frame */}
       <header className="fixed top-0 left-0 w-full z-40 bg-[#060608]/80 backdrop-blur-lg border-b border-white/[0.04]">
-        <div className="relative max-w-[1600px] mx-auto px-6 lg:px-12 h-24 flex items-center">
+        <div className="relative max-w-[1600px] mx-auto px-6 lg:px-12 h-20 lg:h-24 flex items-center">
           
           <NexoraHeader />
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="
+              lg:hidden
+              ml-auto
+              p-2
+              rounded-xl
+              border border-white/[0.08]
+              bg-white/[0.02]
+              text-white
+              hover:border-[#00F0FF]/30
+              transition-all
+            "
+          >
+            {mobileMenuOpen ? (
+              <X className="w-5 h-5" />
+            ) : (
+              <Menu className="w-5 h-5" />
+            )}
+          </button>
 
           {/* Navigation */}
           <nav className="hidden lg:flex items-center gap-10 ml-12">
@@ -99,6 +123,119 @@ export default function Home() {
             </button>
 
           </nav>
+
+          <AnimatePresence>
+            {mobileMenuOpen && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                className="
+                  absolute
+                  top-full
+                  left-4
+                  right-4
+                  mt-3
+                  lg:hidden
+                  rounded-2xl
+                  border border-white/[0.08]
+                  bg-[#09090D]/95
+                  backdrop-blur-xl
+                  overflow-hidden
+                  shadow-[0_0_40px_rgba(0,240,255,0.08)]
+                "
+              >
+                <div className="flex flex-col p-3">
+                  <button
+                    onClick={() => {
+                      document
+                        .getElementById('web-development')
+                        ?.scrollIntoView({ behavior: 'smooth' });
+                      setMobileMenuOpen(false);
+                    }}
+                    className="
+                      flex items-center gap-3
+                      p-4
+                      rounded-xl
+                      text-left
+                      hover:bg-white/[0.03]
+                      transition-all
+                    "
+                  >
+                    <MonitorCog className="w-4 h-4 text-[#00F0FF]" />
+                    <span className="uppercase tracking-wider text-sm">
+                      Web Design
+                    </span>
+                  </button>
+                  <button
+                    onClick={() => {
+                      document
+                        .getElementById('logo-design')
+                        ?.scrollIntoView({ behavior: 'smooth' });
+                      setMobileMenuOpen(false);
+                    }}
+                    className="
+                      flex items-center gap-3
+                      p-4
+                      rounded-xl
+                      text-left
+                      hover:bg-white/[0.03]
+                      transition-all
+                    "
+                  >
+                    <Palette className="w-4 h-4 text-[#FF2EFF]" />
+                    <span className="uppercase tracking-wider text-sm">
+                      Logo Design
+                    </span>
+                  </button>
+                  <button
+                    onClick={() => {
+                      document
+                        .getElementById('video-portfolio')
+                        ?.scrollIntoView({ behavior: 'smooth' });
+                      setMobileMenuOpen(false);
+                    }}
+                    className="
+                      flex items-center gap-3
+                      p-4
+                      rounded-xl
+                      text-left
+                      hover:bg-white/[0.03]
+                      transition-all
+                    "
+                  >
+                    <Clapperboard className="w-4 h-4 text-emerald-400" />
+                    <span className="uppercase tracking-wider text-sm">
+                      Video Editing
+                    </span>
+                  </button>
+                  <button
+                    onClick={() => {
+                      document
+                        .getElementById('studio-booking-desk')
+                        ?.scrollIntoView({ behavior: 'smooth' });
+
+                      setMobileMenuOpen(false);
+                    }}
+                    className="
+                      flex items-center justify-center
+                      mt-2
+                      rounded-xl
+                      bg-[#00F0FF]
+                      text-black
+                      py-3
+                      font-mono
+                      text-xs
+                      tracking-[0.25em]
+                      uppercase
+                    "
+                  >
+                    Contact
+                  </button>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </header>
 

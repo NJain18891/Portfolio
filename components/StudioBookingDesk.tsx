@@ -187,9 +187,18 @@ export default function StudioBookingDesk({
         </div>
 
         <div className="lg:col-span-7 before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_top_right,rgba(0,240,255,0.06),transparent_50%)] before:pointer-events-none before:rounded-2xl bg-[#09090D] border border-white/[0.05] p-6 sm:p-10 rounded-2xl relative shadow-2xl">
-          <div className="absolute top-4 right-4 flex items-center gap-2">
+          <div className="hidden md:flex absolute top-4 right-4 flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-[#00F0FF] border border-emerald-500 animate-pulse" />
             <span className="font-mono text-[12px] text-[#00F0FF] tracking-widest"> NEXORA CLIENT PORTAL </span>
+          </div>
+
+          <div className="md:hidden flex justify-center mb-8">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#00F0FF]" />
+              <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#00F0FF]">
+                Nexora Client Portal
+              </span>
+            </div>
           </div>
 
           <form onSubmit={handleReserve} className="space-y-8">
