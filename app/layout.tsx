@@ -21,8 +21,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Nikhil Jain // Creative Technologist & Product Engineer',
-  description: 'High-fidelity cinematic interactive web applications and design engineering.',
+  title: 'Nexora Studio | The Central Creative Nexus',
+  description: 'Engineering high-performance digital experiences through web design, brand identity and cinematic content creation.',
 };
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
