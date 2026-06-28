@@ -12,7 +12,7 @@ export const PROJECTS_DATA: ProjectSpec[] = [
       "Tailwind",
       "Framer Motion"
     ],
-    websiteUrl: "https://vanguard-astro-318426778739.asia-southeast1.run.app/"
+    websiteUrl: "https://vanguard-eight-gray.vercel.app/"
   },
   {
     title: "APEX AGGREGATES",
@@ -25,7 +25,7 @@ export const PROJECTS_DATA: ProjectSpec[] = [
       "Tailwind",
       "PostgreSQL"
     ],
-    websiteUrl: "https://apex-race-aggregates-318426778739.asia-southeast1.run.app/"
+    websiteUrl: "https://apex-beta-green.vercel.app/"
   },
   {
     title: "ZORA MARKETPLACE",
